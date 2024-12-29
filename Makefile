@@ -11,3 +11,7 @@ test:
 	cmake -S test -B test/build
 	cmake --build test/build
 	ctest --test-dir test/build
+
+.PHONY: lint
+lint:
+	pipenv run cpplint --linelength=120 --recursive src
