@@ -17,6 +17,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(hello_tests hello_tests.cc)
+add_subdirectory(generator)
 target_link_libraries(hello_tests GTest::gtest_main)
 
 include(GoogleTest)
