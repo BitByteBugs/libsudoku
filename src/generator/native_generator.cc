@@ -22,14 +22,11 @@ namespace sudoku::generator
 
             for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 0; j++) {
-                    while (true){
-                        uint8_t pick = rands(gen);
-                    
-                        if (sudoku::util::is_valid_number(grid, i, j, pick)) {
-                            grid[i][j] = pick;
-                            break;
-                        }
+                    uint8_t pick = rands(gen);
+                    while (sudoku::util::is_valid_number(grid, i, j, pick)){
+                        pick = rands(gen);
                     }
+                    grid[i][j] = pick;
                 }
             }
 
