@@ -11,6 +11,6 @@ namespace sudoku::generator
 {
     class NativeGenerator : public BaseGenerator{
         public:
-            std::vector<std::vector<uint8_t>> generate();
+            std::vector<std::vector<uint8_t>> generate(uint8_t difficulty) override;
     };
 } // namespace sudoku::generator

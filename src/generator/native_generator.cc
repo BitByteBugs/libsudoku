@@ -2,21 +2,22 @@
 
 #include <random>
 
+#include "util/puzzle_maker.h"
 #include "util/puzzle_utils.h"
 
 namespace sudoku::generator
 {
     class NativeGenerator : public BaseGenerator
     {
-        std::vector<std::vector<uint8_t>> NativeGenerator::generate() override {
+        std::vector<std::vector<uint8_t>> NativeGenerator::generate(uint8_t difficulty) override {
             std::random_device rd;
             std::mt19937 gen(rd());
             std::uniform_int_distribution<> rands(1, 10);
 
-            return generate(gen, rands);
+            return generate(gen, rands, difficulty);
         }
 
-        std::vector<std::vector<uint8_t>> NativeGenerator::generate(std::mt19937 gen, std::uniform_int_distribution<> rands) {
+        std::vector<std::vector<uint8_t>> NativeGenerator::generate(std::mt19937 gen, std::uniform_int_distribution<> rands, uint8_t difficulty) {
             std::vector<std::vector<uint8_t>>grid = std::vector<std::vector<uint8_t>>(9, std::vector<uint8_t>(9, 0));
 
             for (int i = 0; i < 9; i++) {
@@ -32,6 +33,7 @@ namespace sudoku::generator
                 }
             }
 
+            sudoku::util::MakePuzzle(grid, difficulty);
             return grid;
         }
     };
