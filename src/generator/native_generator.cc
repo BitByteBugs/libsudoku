@@ -1,15 +1,11 @@
-#include "generator/native_generator.h"
+#include "native_generator.h"
 
-#include <random>
-
-#include "util/puzzle_maker.h"
-#include "util/puzzle_utils.h"
+#include "../util/puzzle_maker.h"
+#include "../util/puzzle_utils.h"
 
 namespace sudoku::generator
 {
-    class NativeGenerator : public BaseGenerator
-    {
-        std::vector<std::vector<uint8_t>> NativeGenerator::generate(uint8_t difficulty) override {
+        std::vector<std::vector<uint8_t>> NativeGenerator::generate(uint8_t difficulty) {
             std::random_device rd;
             std::mt19937 gen(rd());
             std::uniform_int_distribution<> rands(1, 10);
@@ -33,5 +29,5 @@ namespace sudoku::generator
             sudoku::util::MakePuzzle(grid, difficulty);
             return grid;
         }
-    };
+
 } // namespace sudoku::generator
