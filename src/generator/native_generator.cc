@@ -26,7 +26,13 @@ namespace sudoku::generator
                 }
             }
 
-            sudoku::util::MakePuzzle(grid, difficulty);
+            if (sudoku::util::DifficultyLevel::EASY <= difficulty
+                && difficulty < sudoku::util::DifficultyLevel::LIMIT_OF_DIFFICULTY) {
+                difficulty = 0;
+            }
+            auto level = static_cast<sudoku::util::DifficultyLevel>(difficulty);
+            
+            sudoku::util::MakePuzzle(grid, level);
             return grid;
         }
 } // namespace sudoku::generator
