@@ -29,5 +29,4 @@ namespace sudoku::generator
             sudoku::util::MakePuzzle(grid, difficulty);
             return grid;
         }
-
 } // namespace sudoku::generator

@@ -1,3 +1,6 @@
+#ifndef SUDOKU_UTIL_PUZZLE_MAKER_H
+#define SUDOKU_UTIL_PUZZLE_MAKER_H
+
 #include <cstdint>
 #include <vector>
 
@@ -17,3 +20,4 @@ namespace sudoku::util
     class VeryHard: public Difficulty {};
     class Expert: public Difficulty {};
 } // namespace sudoku::util
+#endif  // SUDOKU_UTIL_PUZZLE_MAKER_H

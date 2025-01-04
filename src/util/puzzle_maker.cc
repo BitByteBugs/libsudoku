@@ -15,7 +15,7 @@ namespace {
 namespace sudoku::util
 {
     void MakePuzzle(std::vector<std::vector<uint8_t>>& grid, uint8_t difficulty) {
-        Difficulty level = GetInstance(difficulty);
+        Difficulty level = sudoku::util::GetInstance(difficulty);
         uint8_t blankNumbers = level.GetBlanckNumbers();
 
         for (int i = 0; i < blankNumbers; i++) {
