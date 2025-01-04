@@ -14,24 +14,7 @@ namespace {
 
 namespace sudoku::util
 {
-    void MakePuzzle(std::vector<std::vector<uint8_t>>& grid, uint8_t difficulty) {
-        Difficulty level = sudoku::util::GetInstance(difficulty);
-        uint8_t blankNumbers = level.GetBlankNumbers();
-
-        for (int i = 0; i < blankNumbers; i++) {
-            int row = GetRandomNumber();
-            int col = GetRandomNumber();
-
-            while (grid[row][col] != 0) {
-                row = GetRandomNumber();
-                col = GetRandomNumber();
-            }
-
-            grid[row][col] = 0;
-        }
-    }
-
-    Difficulty GetInstance(uint8_t difficulty) {
+    Difficulty GetInstance(DifficultyLevel difficulty) {
         switch (difficulty) {
             case DifficultyLevel::EASY:
                 sudoku::util::Easy easy;
@@ -69,5 +52,22 @@ namespace sudoku::util
 
     uint8_t sudoku::util::Expert::GetBlankNumbers() {
         return 55 + GetRandomNumber();
+    }
+
+    void MakePuzzle(std::vector<std::vector<uint8_t>>& grid, uint8_t difficulty) {
+        Difficulty level = sudoku::util::GetInstance(difficulty);
+        uint8_t blankNumbers = level.GetBlankNumbers();
+
+        for (int i = 0; i < blankNumbers; i++) {
+            int row = GetRandomNumber();
+            int col = GetRandomNumber();
+
+            while (grid[row][col] != 0) {
+                row = GetRandomNumber();
+                col = GetRandomNumber();
+            }
+
+            grid[row][col] = 0;
+        }
     }
 }

@@ -6,7 +6,7 @@
 
 namespace sudoku::util
 {
-    enum DifficultyLevel { EASY, NORMAL, HARD, VERY_HARD, EXPERT };
+    enum DifficultyLevel: uint8_t { EASY, NORMAL, HARD, VERY_HARD, EXPERT };
     void MakePuzzle(std::vector<std::vector<uint8_t>>& grid, uint8_t difficulty);
 
     class Difficulty {
@@ -34,5 +34,6 @@ namespace sudoku::util
         public:
             uint8_t GetBlankNumbers() override;
     };
+    Difficulty GetInstance(DifficultyLevel difficulty);
 } // namespace sudoku::util
 #endif  // SUDOKU_UTIL_PUZZLE_MAKER_H
