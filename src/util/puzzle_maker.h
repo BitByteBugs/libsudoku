@@ -11,13 +11,28 @@ namespace sudoku::util
 
     class Difficulty {
         public:
-            virtual uint8_t GetBlanckNumbers();
+            virtual uint8_t GetBlankNumbers();
     };
 
-    class Easy: public Difficulty {};
-    class Normal: public Difficulty {};
-    class Hard: public Difficulty {};
-    class VeryHard: public Difficulty {};
-    class Expert: public Difficulty {};
+    class Easy: public Difficulty {
+        public:
+            uint8_t GetBlankNumbers() override;
+    };
+    class Normal: public Difficulty {
+        public:
+            uint8_t GetBlankNumbers() override;
+    };
+    class Hard: public Difficulty {
+        public:
+            uint8_t GetBlankNumbers() override;
+    };
+    class VeryHard: public Difficulty {
+        public:
+            uint8_t GetBlankNumbers() override;
+    };
+    class Expert: public Difficulty {
+        public:
+            uint8_t GetBlankNumbers() override;
+    };
 } // namespace sudoku::util
 #endif  // SUDOKU_UTIL_PUZZLE_MAKER_H

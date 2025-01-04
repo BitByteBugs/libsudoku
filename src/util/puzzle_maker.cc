@@ -16,7 +16,7 @@ namespace sudoku::util
 {
     void MakePuzzle(std::vector<std::vector<uint8_t>>& grid, uint8_t difficulty) {
         Difficulty level = sudoku::util::GetInstance(difficulty);
-        uint8_t blankNumbers = level.GetBlanckNumbers();
+        uint8_t blankNumbers = level.GetBlankNumbers();
 
         for (int i = 0; i < blankNumbers; i++) {
             int row = GetRandomNumber();
@@ -50,41 +50,24 @@ namespace sudoku::util
                 return expert;
         }
     }
-    class Easy : public Difficulty
-    {
-        public:
-            uint8_t Easy::GetBlanckNumbers() override {
-                return 15 + GetRandomNumber();
-            }
-    };
+    
+    uint8_t sudoku::util::Easy::GetBlankNumbers() {
+        return 15 + GetRandomNumber();
+    }
+    
+    uint8_t sudoku::util::Normal::GetBlankNumbers() {
+        return 25 + GetRandomNumber();
+    }
 
-    class Normal : public Difficulty {
-        public:
-            uint8_t Normal::GetBlanckNumbers() override {
-                return 25 + GetRandomNumber();
-            }
-    };
+    uint8_t sudoku::util::Hard::GetBlankNumbers() {
+        return 35 + GetRandomNumber();
+    }
 
-    class Hard : public Difficulty {
-        public:
-            uint8_t Hard::GetBlanckNumbers() override {
-                return 35 + GetRandomNumber();
-            }
-    };
+    uint8_t sudoku::util::VeryHard::GetBlankNumbers() {
+        return 45 + GetRandomNumber();
+    }
 
-    class VeryHard : public Difficulty {
-        public:
-            uint8_t VeryHard::GetBlanckNumbers() override {
-                return 45 + GetRandomNumber();
-            }
-    };
-
-    class Expert : public Difficulty {
-        public:
-            uint8_t Expert::GetBlanckNumbers() override {
-                return 55 + GetRandomNumber();
-            }
-    };
-
-
+    uint8_t sudoku::util::Expert::GetBlankNumbers() {
+        return 55 + GetRandomNumber();
+    }
 }
