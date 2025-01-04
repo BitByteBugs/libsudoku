@@ -31,7 +31,7 @@ namespace sudoku::generator
                 difficulty = 0;  // Fall back to EASY
             }
             auto level = static_cast<sudoku::util::DifficultyLevel>(difficulty);
-            
+
             sudoku::util::MakePuzzle(grid, level);
             return grid;
         }
