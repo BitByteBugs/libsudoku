@@ -64,7 +64,7 @@ namespace sudoku::util
         return 55 + GetRandomNumber();
     }
 
-    void MakePuzzle(std::vector<std::vector<uint8_t>>& grid, uint8_t difficulty) {
+    void MakePuzzle(std::vector<std::vector<uint8_t>>& grid, DifficultyLevel difficulty) {
         Difficulty level = sudoku::util::GetInstance(difficulty);
         uint8_t blankNumbers = level.GetBlankNumbers();
 

@@ -6,8 +6,15 @@
 
 namespace sudoku::util
 {
-    enum DifficultyLevel: uint8_t { EASY, NORMAL, HARD, VERY_HARD, EXPERT };
-    void MakePuzzle(std::vector<std::vector<uint8_t>>& grid, uint8_t difficulty);
+    enum DifficultyLevel: uint8_t {
+        EASY,
+        NORMAL,
+        HARD,
+        VERY_HARD,
+        EXPERT,
+        LIMIT_OF_DIFFICULTY // Indicate the end of enum. Don't use this level and don't define level lower.
+    };
+    void MakePuzzle(std::vector<std::vector<uint8_t>>& grid, DifficultyLevel difficulty);
 
     class Difficulty {
         public:
