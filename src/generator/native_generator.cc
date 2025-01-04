@@ -28,7 +28,7 @@ namespace sudoku::generator
 
             if (sudoku::util::DifficultyLevel::EASY <= difficulty
                 && difficulty < sudoku::util::DifficultyLevel::LIMIT_OF_DIFFICULTY) {
-                difficulty = 0;
+                difficulty = 0;  // Fall back to EASY
             }
             auto level = static_cast<sudoku::util::DifficultyLevel>(difficulty);
             

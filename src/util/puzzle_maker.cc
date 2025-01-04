@@ -80,4 +80,8 @@ namespace sudoku::util
             grid[row][col] = 0;
         }
     }
+
+    uint8_t Difficulty::GetBlankNumbers() {
+        return 0;
+    }
 }
