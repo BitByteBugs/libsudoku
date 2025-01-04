@@ -17,20 +17,30 @@ namespace sudoku::util
     Difficulty GetInstance(DifficultyLevel difficulty) {
         switch (difficulty) {
             case DifficultyLevel::EASY:
+            {
                 sudoku::util::Easy easy;
                 return easy;
+            }
             case DifficultyLevel::NORMAL:
+            {
                 sudoku::util::Normal normal;
                 return normal;
+            }
             case DifficultyLevel::HARD:
+            {
                 sudoku::util::Hard hard;
                 return hard;
+            }
             case DifficultyLevel::VERY_HARD:
+            {
                 sudoku::util::VeryHard veryHard;
                 return veryHard;
+            }
             case DifficultyLevel::EXPERT:
+            {
                 sudoku::util::Expert expert;
                 return expert;
+            }
         }
     }
     
